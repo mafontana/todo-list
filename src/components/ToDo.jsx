@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Checkbox from "./Checkbox.jsx"
 
 class ToDo extends Component {
   constructor() {
@@ -11,16 +12,18 @@ class ToDo extends Component {
   render() {
     return (
       <div className="ToDo">
-      <p>To do list</p>
+      <p>{this.props.name ? `${this.props.name}'s to do list` : "To do List"}</p>
       <button onClick={this.props.handleClick}>Home</button>
       <input name="search" type="text" onChange={this.props.handleChange} />
       <button type="submit" onClick={this.props.handleSearch}>Search</button>
       <form>
-            <input onChange={this.props.handleChange} type="text">
+            <p>Enter a task:</p>
+            <input onChange={this.props.handleChange} name="task" type="text">
             </input>
-        </form>
+      </form>
         <button onClick={this.props.handleSubmit} type="submit">submit!</button>
-        {this.props.renderToDos}
+        
+        <Checkbox />
       </div>
     );
   }

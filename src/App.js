@@ -11,8 +11,9 @@ class App extends Component {
       inputValue: "",
       newTodo: "",
       search: "",
-      toDos: [],
-      name: ""
+      toDos: ["walk the dog", "drink water"],
+      name: "",
+      boxChecked: false
     }
   }
 
@@ -36,33 +37,61 @@ handleChange = (event) => {
   })
 }
 
-handleSubmit = (event) => {
-  event.preventDefault();
-  this.setState({toDos: [...this.state.toDos, this.state.inputValue]
+// handleSubmit = (e) => {
+//   // e.preventDefault();
+//   console.log("new too do", e.target.value)
+//   this.setState({
+//     toDos: [...this.state.toDos, e.target.value]
+//   })
+// }
+
+handleSubmit = (e) => {
+  console.log(e.target.value)
+  this.setState({
+    toDos: [...this.state.toDos, this.state.task]
   })
 }
 
-handleSearch = () => {
-  let filtered = this.state.toDos.filter(toDo => {
-    return toDo.includes(this.state.search)
+handleCheckBox = () => {
+  this.setState({
+    boxChecked: !this.state.boxChecked
   })
-  console.log(filtered)
 }
 
+// handleSearch = () => {
+//   let filtered = this.state.toDos.filter(toDo => {
+//     return toDo.includes(this.state.search)
+//   })
+//   console.log(filtered)
+// }
 
-  render() {
+
+
+render() {
     //variables go inside render
-    var renderTodos = this.state.toDos.map(todo => <li>{todo}</li>)
+    
+// var renderTodos = this.state.toDos.map(todo => <div className="task">
+//                                                 <input type="checkbox" onClick={this.props.handleCheckBox}></input>
+//                                                 <p>{todo}</p>
+//                                                 </div>)
 
+
+
+const name = this.state.name
+  
     return (
       <div className="App">
       {this.state.loaded ? 
         <ToDo handleSearch={this.handleSearch} 
-              renderToDos={renderTodos} 
+              tooDos={this.state.toDos} 
               handleSubmit={this.handleSubmit} 
               handleChange={this.handleChange} 
-              handleClick={this.handleClick} /> :
-        <HomePage handleClick={this.handleClick} nameSubmit={this.nameSubmit} name={this.state.name}/>
+              handleClick={this.handleClick}
+              name={this.state.name}
+              handleCheckBox={this.handleCheckBox} /> :
+        <HomePage handleClick={this.handleClick} 
+              nameSubmit={this.nameSubmit} 
+              name={name}/>
       }
        
       </div>

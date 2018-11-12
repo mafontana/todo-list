@@ -22,4 +22,12 @@
   color: #61dafb;
 }
 
+.task {
+  width: 300px;
+  display: flex;
+  align-content: space-between;
+  border: 2px solid black;
+  margin: 2px;
+}
+
 
