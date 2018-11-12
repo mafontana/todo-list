@@ -13,7 +13,7 @@ class App extends Component {
       search: "",
       toDos: ["walk the dog", "drink water"],
       name: "",
-      boxChecked: false
+    
     }
   }
 
@@ -53,10 +53,16 @@ handleSubmit = (e) => {
 }
 
 handleCheckBox = () => {
+  console.log("checkbox was clicked")
   this.setState({
     boxChecked: !this.state.boxChecked
   })
 }
+
+deleteTask = () => {
+  
+}
+
 
 // handleSearch = () => {
 //   let filtered = this.state.toDos.filter(toDo => {
@@ -83,7 +89,7 @@ const name = this.state.name
       <div className="App">
       {this.state.loaded ? 
         <ToDo handleSearch={this.handleSearch} 
-              tooDos={this.state.toDos} 
+              toDos={this.state.toDos} 
               handleSubmit={this.handleSubmit} 
               handleChange={this.handleChange} 
               handleClick={this.handleClick}

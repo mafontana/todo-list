@@ -5,9 +5,11 @@ class ToDo extends Component {
   constructor() {
     super()
     this.state={
-      loaded: false
+      loaded: false,
+      boxChecked: false
     }
   }
+
 
   render() {
     return (
@@ -22,8 +24,7 @@ class ToDo extends Component {
             </input>
       </form>
         <button onClick={this.props.handleSubmit} type="submit">submit!</button>
-        
-        <Checkbox />
+        {this.props.toDos.map(task => <Checkbox name={this.props.name} toDos={task} handleCheckBox={this.props.handleCheckBox}/>)}
       </div>
     );
   }

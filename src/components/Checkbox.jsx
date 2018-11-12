@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 const Checkbox = (props) => {
+
+// const newToDo = props.toDos.map(task => )
+    
     return (
-        <div>
-        <p>This is a checkbox</p>
+        <div className="task">
+        <input onClick={props.handleCheckBox} type="checkbox"></input>
+        <p>{props.toDos}</p>
         </div>
     )
 }
