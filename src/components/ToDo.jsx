@@ -23,8 +23,8 @@ class ToDo extends Component {
             </input>
       </form>
         <button onClick={this.props.handleSubmit} type="submit">submit!</button>
-        {this.props.toDos.map(tasks => <Checkbox task={tasks.task}  id={tasks.id}/> )}
-        {this.props.boxChecked ? <button>Delete task</button>: <p>Select a task to delete it.</p>}
+        {this.props.toDos.map(tasks => <Checkbox task={tasks.task}  id={tasks.id} handleCheckBox={this.props.handleCheckBox}/> )}
+       
       </div>
     );
   }
@@ -33,3 +33,8 @@ class ToDo extends Component {
 export default ToDo;
 
 //{this.props.toDos.map(task => <Checkbox name={this.props.name} toDos={task} handleCheckBox={this.props.handleCheckBox}/>)}
+
+//delete button:
+//{this.props.boxChecked ? <button onClick={this.props.deleteTask}>Delete task</button>: <p>Select a task to delete it.</p>}
+
+    // <button onClick={this.props.deleteTask(this.props.id)}>Delete task </button>

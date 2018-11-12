@@ -71,7 +71,13 @@ handleCheckBox = () => {
   })
 }
 
-deleteTask = () => {
+deleteTask = (id) => {
+  const newTodoList = this.state.toDos.filter(todo => todo.id != id)
+  console.log(newTodoList)
+  console.log("delete button was clicked")
+  this.setState({
+    toDos: newTodoList
+  })
 
 }
 
@@ -107,7 +113,9 @@ const name = this.state.name
               handleClick={this.handleClick}
               name={this.state.name}
               handleCheckBox={this.handleCheckBox}
-              boxChecked={this.state.boxChecked} /> :
+              boxChecked={this.state.boxChecked}
+              deleteTask={this.deleteTask}
+              id={this.state.toDos.id} /> :
         <HomePage handleClick={this.handleClick} 
               nameSubmit={this.nameSubmit} 
               name={name}/>
