@@ -12,7 +12,7 @@ class DeleteButton extends Component {
     render() {
         return (
             <div className="button">
-                <button>Delete Task</button>
+                <button onClick={this.props.deleteTask}>Delete Task</button>
             </div>
         )
     }

@@ -74,7 +74,16 @@ handleCheckBox = () => {
 
 
 
-deleteTask = (id) => {
+deleteTask = () => {
+      console.log("delete button clicked")
+      // const newTodoList = []
+
+      // for (let i=0; i<this.state.checkedBoxId.length; i++) {
+      //   newTodoList = this.state.toDos.filter(todo => todo.id === 3)
+      //   }
+      //   console.log(newTodoList)
+} 
+
   // console.log(e.target)
   // const newTodoList = this.state.toDos.filter(todo => todo.id != this.state.toDos.id)
   // console.log(newTodoList)
@@ -83,7 +92,7 @@ deleteTask = (id) => {
   // this.setState({
   //   toDos: newTodoList
   // })
-}
+
 
 checkedBoxId = (e) => {
   this.setState({

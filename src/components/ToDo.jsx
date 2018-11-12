@@ -26,9 +26,9 @@ class ToDo extends Component {
       </form>
         <button onClick={this.props.handleSubmit} type="submit">submit!</button>
         {this.props.toDos.map(tasks => <Checkbox task={tasks.task}  id={tasks.id} handleCheckBox={this.props.handleCheckBox} checkedBoxId={this.props.checkedBoxId}/> )}
-       <button id={this.props.id} onClick={this.props.deleteTask(3)}>Delete</button>
-       <button id={this.props.checkedId} onClick={this.props.deleteTask(this.props.id)}>Delete task </button>
-       <DeleteButton />
+       
+       
+       <DeleteButton deleteTask={this.props.deleteTask}/>
       </div>
     );
   }
