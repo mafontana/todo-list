@@ -6,7 +6,6 @@ class ToDo extends Component {
     super()
     this.state={
       loaded: false,
-      boxChecked: false
     }
   }
 
@@ -24,10 +23,13 @@ class ToDo extends Component {
             </input>
       </form>
         <button onClick={this.props.handleSubmit} type="submit">submit!</button>
-        {this.props.toDos.map(task => <Checkbox name={this.props.name} toDos={task} handleCheckBox={this.props.handleCheckBox}/>)}
+        {this.props.toDos.map(tasks => <Checkbox task={tasks.task}  id={tasks.id}/> )}
+        {this.props.boxChecked ? <button>Delete task</button>: <p>Select a task to delete it.</p>}
       </div>
     );
   }
 }
 
 export default ToDo;
+
+//{this.props.toDos.map(task => <Checkbox name={this.props.name} toDos={task} handleCheckBox={this.props.handleCheckBox}/>)}

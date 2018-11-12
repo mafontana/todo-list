@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
 
-const Checkbox = (props) => {
-
-// const newToDo = props.toDos.map(task => )
-    
-    return (
-        <div className="task">
-        <input onClick={props.handleCheckBox} type="checkbox"></input>
-        <p>{props.toDos}</p>
-        </div>
-    )
-}
+class Checkbox extends Component {
+    constructor() {
+      super()
+      this.state={
+        
+      }
+    }
+  
+  
+    render() {
+        return (
+            <div className="task">
+            <input onClick={this.props.handleCheckBox} type="checkbox"></input>
+            <p>{this.props.task}</p>
+            </div>
+        )
+    }
+  }
 
 export default Checkbox
+
+

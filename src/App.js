@@ -11,8 +11,13 @@ class App extends Component {
       inputValue: "",
       newTodo: "",
       search: "",
-      toDos: ["walk the dog", "drink water"],
+      toDos: [{task: "walk the dog",
+              id: 0}, 
+              {
+                task: "feed the cat",
+                id: 1}],
       name: "",
+      boxChecked: false
     
     }
   }
@@ -48,7 +53,14 @@ handleChange = (event) => {
 handleSubmit = (e) => {
   console.log(e.target.value)
   this.setState({
-    toDos: [...this.state.toDos, this.state.task]
+    // toDos: [...this.state.toDos, this.state.task]
+    toDos: [...this.state.toDos,
+            {
+              task: this.state.task,
+              id: this.state.toDos.length}, 
+          ],
+            
+
   })
 }
 
@@ -60,7 +72,7 @@ handleCheckBox = () => {
 }
 
 deleteTask = () => {
-  
+
 }
 
 
@@ -94,7 +106,8 @@ const name = this.state.name
               handleChange={this.handleChange} 
               handleClick={this.handleClick}
               name={this.state.name}
-              handleCheckBox={this.handleCheckBox} /> :
+              handleCheckBox={this.handleCheckBox}
+              boxChecked={this.state.boxChecked} /> :
         <HomePage handleClick={this.handleClick} 
               nameSubmit={this.nameSubmit} 
               name={name}/>
