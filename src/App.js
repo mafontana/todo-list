@@ -11,9 +11,17 @@ class App extends Component {
       inputValue: "",
       newTodo: "",
       search: "",
-      toDos: ["walk the dog", "drink coffee", "code", "align chakras", "sleep"]
+      toDos: [],
+      name: ""
     }
   }
+
+nameSubmit = (e) => {
+  console.log(e.target.value)
+  this.setState({
+    name: e.target.value
+  })
+}
 
 handleClick = () => {
   this.setState({
@@ -54,7 +62,7 @@ handleSearch = () => {
               handleSubmit={this.handleSubmit} 
               handleChange={this.handleChange} 
               handleClick={this.handleClick} /> :
-        <HomePage handleClick={this.handleClick}/>
+        <HomePage handleClick={this.handleClick} nameSubmit={this.nameSubmit} name={this.state.name}/>
       }
        
       </div>
