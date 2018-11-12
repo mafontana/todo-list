@@ -76,13 +76,42 @@ handleCheckBox = () => {
 
 deleteTask = () => {
       console.log("delete button clicked")
-      // const newTodoList = []
+      const filter = this.state.toDos.find(todo => todo.id == 1)
+      console.log("filtered items todo.id", filter)
+      console.log("filter id", filter.id)
+      const arrayOfIds = this.state.checkedBoxId
+      const filteredObjects = []
+      arrayOfIds.map(id => {
+        const newFilteredTask = this.state.toDos.find(todo => todo.id == id)
+        filteredObjects.push(newFilteredTask)
 
-      // for (let i=0; i<this.state.checkedBoxId.length; i++) {
-      //   newTodoList = this.state.toDos.filter(todo => todo.id === 3)
-      //   }
-      //   console.log(newTodoList)
-} 
+      }
+      
+        )
+        console.log(filteredObjects)
+
+        // for (let i=0; i<this.state.toDos.length; i++){
+        //   if (this.state.toDos.filter(todo => todo.id == i)) {
+        //             console.log("you dit it!!!") 
+        //           } else {
+        //             console.log("nope")
+        //           }
+        //     }
+
+
+        // if (this.state.toDos.filter(todo => todo.id) == 2) {
+        //   console.log("you dit it!!!") 
+        // } else {
+        //   console.log("nope")
+        // }
+    this.setState({
+      toDos: filteredObjects
+
+    })
+      }
+        // console.log("this is the variable newTodoList", newTodoList)
+
+
 
   // console.log(e.target)
   // const newTodoList = this.state.toDos.filter(todo => todo.id != this.state.toDos.id)
