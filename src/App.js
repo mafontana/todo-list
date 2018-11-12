@@ -17,7 +17,8 @@ class App extends Component {
                 task: "feed the cat",
                 id: 1}],
       name: "",
-      boxChecked: false
+      boxChecked: false,
+      checkedBoxId: []
     
     }
   }
@@ -71,15 +72,30 @@ handleCheckBox = () => {
   })
 }
 
-deleteTask = (id) => {
-  const newTodoList = this.state.toDos.filter(todo => todo.id != id)
-  console.log(newTodoList)
-  console.log("delete button was clicked")
-  this.setState({
-    toDos: newTodoList
-  })
 
+
+deleteTask = (id) => {
+  // console.log(e.target)
+  // const newTodoList = this.state.toDos.filter(todo => todo.id != this.state.toDos.id)
+  // console.log(newTodoList)
+  // console.log("delete button was clicked")
+  
+  // this.setState({
+  //   toDos: newTodoList
+  // })
 }
+
+checkedBoxId = (e) => {
+  this.setState({
+    checkedBoxId: [...this.state.checkedBoxId, e.target.id]
+  })
+}
+
+
+
+
+
+
 
 
 // handleSearch = () => {
@@ -94,12 +110,6 @@ deleteTask = (id) => {
 render() {
     //variables go inside render
     
-// var renderTodos = this.state.toDos.map(todo => <div className="task">
-//                                                 <input type="checkbox" onClick={this.props.handleCheckBox}></input>
-//                                                 <p>{todo}</p>
-//                                                 </div>)
-
-
 
 const name = this.state.name
   
@@ -115,6 +125,7 @@ const name = this.state.name
               handleCheckBox={this.handleCheckBox}
               boxChecked={this.state.boxChecked}
               deleteTask={this.deleteTask}
+              checkedBoxId={this.checkedBoxId}
               id={this.state.toDos.id} /> :
         <HomePage handleClick={this.handleClick} 
               nameSubmit={this.nameSubmit} 
