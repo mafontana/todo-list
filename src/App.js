@@ -11,11 +11,7 @@ class App extends Component {
       inputValue: "",
       newTodo: "",
       search: "",
-      toDos: [{task: "walk the dog",
-              id: 0}, 
-              {
-                task: "feed the cat",
-                id: 1}],
+      toDos: [],
       name: "",
       boxChecked: false,
       checkedBoxId: []
@@ -76,19 +72,16 @@ handleCheckBox = () => {
 
 deleteTask = () => {
       console.log("delete button clicked")
-      const filter = this.state.toDos.find(todo => todo.id == 1)
-      console.log("filtered items todo.id", filter)
-      console.log("filter id", filter.id)
+    
+      
       const arrayOfIds = this.state.checkedBoxId
       const filteredObjects = []
       arrayOfIds.map(id => {
         const newFilteredTask = this.state.toDos.find(todo => todo.id == id)
         filteredObjects.push(newFilteredTask)
+        })
+        console.log("deleted objects", filteredObjects)
 
-      }
-      
-        )
-        console.log(filteredObjects)
 
         // for (let i=0; i<this.state.toDos.length; i++){
         //   if (this.state.toDos.filter(todo => todo.id == i)) {
